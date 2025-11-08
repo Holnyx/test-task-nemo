@@ -1,0 +1,23 @@
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main__input {
+    width: 240px;
+    height: 20px;
+    margin-top: 25px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.alarm {
+    margin-top: 20px;
+    font-size: 14px;
+}

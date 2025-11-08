@@ -1,0 +1,31 @@
+.table {
+    width: 90vw;
+    margin-top: 30px;
+    text-align: center;
+    border: 2px solid rgb(23, 23, 23);
+    border-collapse: collapse;
+    --font-cell: clamp(12px, 0.85vw + 0.25rem, 16px);
+    --font-head: clamp(12px, 1vw + 0.35rem, 18px);
+    font-size: var(--font-cell);
+}
+
+thead>tr {
+    background-color: #00ce117b;
+}
+
+.table th,
+.table td {
+    height: 40px;
+    border: 2px solid rgb(23, 23, 23);
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+tbody>tr {
+    transition: 0.4s;
+}
+
+tbody>tr:hover {
+    transition: 0.4s;
+    background-color: rgb(225, 225, 225);
+}
