@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 
 import ErrorBox from "../error/Error";
 import Loader from "../loader/Loader";
@@ -16,7 +16,6 @@ interface WeatherProps {
 	onSuccess: (vars: string[]) => void;
 	onRestoreVariables: () => void;
 }
-const ALLOWED = new Set<string>(ALLOWED_DAILY_KEYS);
 
 const Weather: React.FC<WeatherProps> = ({
 	lat,
@@ -30,7 +29,9 @@ const Weather: React.FC<WeatherProps> = ({
 	const [error, setError] = useState<string | null>(null);
 
 	const fetchWeather = useCallback(async () => {
-		const invalidVars = variables.find((value) => !ALLOWED.has(value));
+		const invalidVars = variables.find(
+			(value) => !(ALLOWED_DAILY_KEYS as readonly string[]).includes(value)
+		);
 		if (invalidVars) {
 			setIsLoading(false);
 			setError(`Unsupported field: "${invalidVars}"`);
@@ -84,4 +85,4 @@ const Weather: React.FC<WeatherProps> = ({
 	);
 };
 
-export default Weather;
+export default memo(Weather);
